@@ -4,7 +4,7 @@ import HeroSlider from '../HeroSlider'
 
 const Home = () => {
   return (
-    <div >
+    <div className='mx-auto'>
     <HeroSlider></HeroSlider>
     </div>
   )

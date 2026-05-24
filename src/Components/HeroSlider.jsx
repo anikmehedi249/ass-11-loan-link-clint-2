@@ -53,7 +53,7 @@ const HeroSlider = () => {
                 slides.map((slide, i) =>
                     <SwiperSlide key={i}>
                         <div className='relative w-full h-full'>
-                            <img src={slide.image} alt="" className='w-full h-full object-cover object-center brightness-75 contrast-125' />
+                            <img src={slide.image} alt="" className='w-full h-full object-cover object-center brightness-60 contrast-125' />
                             <div className='absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent'></div>
                                 <div className='absolute inset-0 flex justify-center items-end  md:items-center pt-60'>
                                 <div className='text-center text-white px-4 max-w-2xl '>
