@@ -5,11 +5,12 @@ import { FaEye } from 'react-icons/fa'
 import { IoEyeOff } from 'react-icons/io5'
 import { Link, useNavigate } from 'react-router'
 import useAuth from '../../useHooks/useAuth'
+import useAxiosSecure from '../../useHooks/useAxiosSecure'
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, } = useForm()
   const navigate = useNavigate()
-  // const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure()
 
   const { registerUser, updateUserProfile, setLoading } = useAuth()
   const [show, setShow] = useState(false)
@@ -30,20 +31,20 @@ const Register = () => {
             console.log('after image upload', res.data.data.url);
             const photoURL = res.data.data.url
 
-            // const userInfo = {
-            //   email: data.email,
-            //   displayName: data.name,
-            //   photoURL: photoURL,
-            //   role: data.role
-            // }
+            const userInfo = {
+              email: data.email,
+              displayName: data.name,
+              photoURL: photoURL,
+              role: data.role
+            }
 
-            // axiosSecure.post('/users', userInfo)
-            //   .then(res => {
-            //     if (res.data.insertedId) {
-            //       console.log('user created in the database');
-            //     }
+            axiosSecure.post('/users', userInfo)
+              .then(res => {
+                if (res.data.insertedId) {
+                  console.log('user created in the database');
+                }
 
-            //   })
+              })
 
             const userProfile = {
               displayName: data.name,

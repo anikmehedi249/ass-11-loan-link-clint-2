@@ -1,11 +1,13 @@
 import React from 'react'
 import Navbar from '../Home/Navbar'
 import { Outlet } from 'react-router'
+import LoadingPage from '../../Pages/Utility/LoadingPage'
 
 const AuthLayout = () => {
   return (
     <div>
-        <nav>
+       <LoadingPage>
+         <nav>
             <Navbar></Navbar>
         </nav>
       <main className='min-h-screen mx-auto' style={{backgroundImage:"url('/login-bg.jpg')",
@@ -14,6 +16,7 @@ const AuthLayout = () => {
             }}>
               <Outlet></Outlet>
       </main>
+       </LoadingPage>
     </div>
   )
 }

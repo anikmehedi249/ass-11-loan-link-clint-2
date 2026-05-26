@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import useAuth from '../../useHooks/useAuth';
-import axios from 'axios';
+import useAxiosSecure from '../../useHooks/useAxiosSecure';
+
 
 
 
@@ -10,7 +11,7 @@ const SocialLogin = () => {
     const { signInWithGoogle, setLoading } = useAuth();
     const location = useLocation()
     const navigate = useNavigate()
-    // const axiosSecure = useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
 
 
 
@@ -19,18 +20,18 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user
 
-                // const userInfo ={
-                // email: user.email,
-                // displayName: user.displayName,
-                // photoURL: user.photoURL,
-                // role: "borrower",
-                // createdAt: new Date()
-                // };
-                // axiosSecure.post('/users', userInfo);
-                // console.log(result.user);
-                // const from = location.state?.from?.pathname || '/'
-                //  navigate(from,{ replace:true });
-                // setLoading(false)
+                const userInfo ={
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                role: "borrower",
+                createdAt: new Date()
+                };
+                axiosSecure.post('/users', userInfo);
+                console.log(result.user);
+                const from = location.state?.from?.pathname || '/'
+                 navigate(from,{ replace:true });
+                setLoading(false)
             })
             .then(error => {
                 console.log(error);
