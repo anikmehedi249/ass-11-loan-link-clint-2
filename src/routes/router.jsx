@@ -9,6 +9,9 @@ import ErrorElement2 from "../Pages/Utility/ErrorElement2";
 import DashboardLayout from "../Components/Layouts/DashboardLayout";
 import AddLoan from "../Pages/Dashboard/Manager/AddLoan";
 import PrivateRoutes from "./PrivateRoutes";
+import AllLoans from "../Pages/AllLoans/AllLoans";
+import LoanDetails from "../Pages/Utility/LoanDetails";
+import LoanApply from "../Pages/Utility/LoanApply";
 
 
 
@@ -24,7 +27,23 @@ export const router = createBrowserRouter([
         {
             index: true,
             element: <Home/>
-        }
+        },
+        {
+            path: "all-loans",
+            element: <AllLoans></AllLoans>
+        },
+        {
+            path: "/loan-details/:_id",
+            element: <PrivateRoutes>
+                <LoanDetails></LoanDetails>
+            </PrivateRoutes>
+        },
+        {
+            path: "/loan-apply/:_id",
+            element: <PrivateRoutes>
+                <LoanApply></LoanApply>
+            </PrivateRoutes>
+        },
     ]
 },
 {

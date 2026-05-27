@@ -116,7 +116,7 @@ const AddLoan = () => {
     }
 
     return (
-        <div className='mt-10 text-black "w-full min-h-[calc(100vh-64px)]" mb-5 bg-white rounded-xl'>
+        <div className='mt-5 text-black "w-full min-h-[calc(100vh-64px)]" mb-25 bg-white rounded-xl'>
             <h1 className='text-4xl font-bold mb-6 text-center my-3 custom-font text-primary pt-15'>Create A Loan</h1>
             <form onSubmit={handleSubmit(handleAddLoan)}>
                 <div className=''>
@@ -284,7 +284,7 @@ const AddLoan = () => {
                                 </p>
                                 <div className='text-center mt-4'>
                                     <button type='button' onClick={() => setShowAllPlans(!showAllPlans)} className='btn btn-outline btn-sm'>
-                                        {showAllPlans ? "Show More Plans" : "Show Less Plans"}
+                                        {showAllPlans ?"Show Less Plans" : "Show More Plans"}
                                     </button>
                                 </div>
                                 {errors.emiDurations && (
